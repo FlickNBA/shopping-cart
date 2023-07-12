@@ -9,11 +9,15 @@ import '@fontsource/inter/500.css';
 import '@fontsource/inter/600.css';
 
 const fontInter = ['Inter', 'sans-serif'].join(',');
-const fontIBM = ['IBM Plex Serif', 'sans- serif'].join(', ');
+const fontIBM = ['IBM Plex Serif', 'sans-serif'].join(', ');
 
 const theme = createTheme({
   typography: {
     fontFamily: fontInter,
+    input: {
+      fontFamily: fontIBM,
+      fontWeight: 600,
+    },
     h1: {
       fontFamily: fontIBM,
       fontWeight: 600,
@@ -47,11 +51,13 @@ const theme = createTheme({
       main: '#4f4789',
     },
     roleski: {
+      main: '#e4121b',
       primary: '#e4121b',
       secondary: '#ffcc00',
     },
     background: {
-      default: '#ebebeb',
+      // default: '#d9d3d6',
+      default: '#ffcc00',
     },
   },
 });

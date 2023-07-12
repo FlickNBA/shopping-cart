@@ -1,30 +1,43 @@
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Typography, Box } from '@mui/material';
+import Searchbar from './Searchbar';
+import Basket from './Basket';
 
 export default function Header() {
   return (
     <Grid
-      columns={7}
+      columns={10}
       container
       sx={{
         width: '100%',
-        padding: '1rem',
+        padding: '0.75rem',
         backgroundColor: 'primary.main',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
       }}
     >
       <Grid
-        xs={2}
+        xs={3}
         sx={{
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'center',
         }}
       >
+        <Box
+          component='img'
+          sx={{
+            height: '4rem',
+            marginRight: '1rem',
+          }}
+          src='./src/logo.png'
+        />
         <Typography
           variant='h1'
           color='roleski.secondary'
           sx={{
-            textAlign: 'right',
+            textAlign: 'left',
             fontSize: '1.33rem',
           }}
         >
@@ -32,16 +45,18 @@ export default function Header() {
           <br />
           ponad 50 lat
         </Typography>
-        <Box
-          component='img'
-          sx={{
-            height: '4rem',
-            marginLeft: '1rem',
-          }}
-          src='./src/logo.png'
-        />
       </Grid>
-      <Grid xs={5} sx={{}}></Grid>
+      <Grid
+        xs={4}
+        sx={{
+          paddingX: '1rem',
+        }}
+      >
+        <Searchbar />
+      </Grid>
+      <Grid xs={3} sx={{}}>
+        <Basket />
+      </Grid>
       {/* 
       <Box
         component='img'

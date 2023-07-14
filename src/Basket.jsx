@@ -1,7 +1,7 @@
 import ShoppingBasketIcon from '@mui/icons-material/ShoppingBasket';
 import Grid from '@mui/material/Unstable_Grid2/Grid2';
 import { Typography } from '@mui/material';
-export default function Basket() {
+export default function Basket({ basket }) {
   return (
     <Grid
       container
@@ -32,7 +32,9 @@ export default function Basket() {
           marginLeft: '0.5rem',
         }}
       >
-        20 zł (+ 8 zł wysyłki)
+        {basket.shipping == 0
+          ? `${basket.total} zł (+ wysyłka gratis)`
+          : `${basket.total} zł (+ ${basket.shipping} zł wysyłki)`}
       </Typography>
     </Grid>
   );

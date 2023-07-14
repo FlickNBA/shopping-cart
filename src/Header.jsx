@@ -3,7 +3,12 @@ import { Typography, Box } from '@mui/material';
 import Searchbar from './Searchbar';
 import Basket from './Basket';
 
-export default function Header() {
+export default function Header({
+  basket,
+  setBasket,
+  allProducts,
+  setAllProducts,
+}) {
   return (
     <Grid
       columns={10}
@@ -55,7 +60,7 @@ export default function Header() {
         <Searchbar />
       </Grid>
       <Grid xs={3} sx={{}}>
-        <Basket />
+        <Basket basket={basket} />
       </Grid>
       {/* 
       <Box

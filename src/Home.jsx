@@ -1,127 +1,152 @@
-import Grid from '@mui/material/Unstable_Grid2/Grid2';
-import { Box, Typography, colors } from '@mui/material';
-import { getProducts } from './utilities';
+import Grid from '@mui/material/Grid';
+import { Box, Typography, colors, Button } from '@mui/material';
+import { Basket, Item, getProducts } from './utilities';
 import { useEffect, useState } from 'react';
-import { Button } from '@mui/material';
 
-export default function Home() {
-  const [allProducts, setAllProducts] = useState([]);
+export default function Home({
+  basket,
+  setBasket,
+  allProducts,
+  setAllProducts,
+}) {
+  const handleClick = (e, product) => {
+    e.preventDefault();
+    console.log(e.target);
+    console.log(product);
+
+    setBasket((prevBasket) => {
+      const newBasket = new Basket();
+      newBasket.items = { ...prevBasket.items };
+      newBasket.addToBasket(product);
+      return newBasket;
+    });
+  };
+
+  const [allProductElements, setAllProductElements] = useState([]);
+  const [TEST, setTEST] = useState([]);
 
   useEffect(() => {
     const addProducts = async () => {
       let AP = [];
       let data = await getProducts();
-      let types = [...new Set(data['products'].map((p) => p['type']))];
-      let newData = [];
-      types.forEach((t) => {
-        newData.push(data['products'].filter((p) => p['type'] === t));
+      let extras = data['extras'];
+
+      data['products'].forEach((p, i) => {
+        let NP = new Item(
+          p['type'],
+          p['name'],
+          p['description'],
+          p['image'],
+          p['amount'],
+          p['price'],
+          Math.floor(Math.random() * 9999)
+        );
+        AP.push(NP);
       });
-      newData.forEach((d, i) => {
-        console.log(d);
 
-        let PA = [];
+      setAllProducts(AP);
 
-        d.forEach((item, ii) => {
-          PA.push(
-            <Grid xs={1} key={ii}>
+      AP.forEach((product, i) => {
+        setAllProductElements((prevElements) => [
+          ...prevElements,
+          <Grid item xs={1} key={i * Math.floor(Math.random() * 9999)}>
+            <Box
+              sx={{
+                backgroundColor: colors.common.white,
+                borderRadius: '1rem',
+                width: '95%',
+                padding: '1rem',
+                marginX: 'auto',
+                marginY: '1rem',
+                border: 2,
+                borderColor: 'roleski.primary',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+              }}
+            >
               <Box
                 sx={{
-                  backgroundColor: colors.common.white,
+                  backgroundImage: `url(./${product['picture']})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'top',
+                  backgroundRepeat: 'no-repeat',
+                  width: '33%',
+                  marginLeft: 0,
                   borderRadius: '1rem',
-                  width: '95%',
-                  padding: '1rem',
-                  marginX: 'auto',
-                  border: 2,
-                  borderColor: 'roleski.primary',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  aspectRatio: `${extras[product['type']]['ratio']}`,
+                }}
+              ></Box>
+              <Box
+                sx={{
+                  width: '67%',
+                  paddingLeft: '1rem',
                 }}
               >
-                <Box
+                <Typography
+                  variant='h1'
                   sx={{
-                    backgroundImage: `url(./${item['image']})`,
-                    backgroundSize: 'cover',
-                    backgroundPosition: 'top',
-                    backgroundRepeat: 'no-repeat',
-                    width: '33%',
-                    marginLeft: 0,
-                    borderRadius: '1rem',
-                    aspectRatio: `${data['extras'][item['type']]['ratio']}`,
-                  }}
-                ></Box>
-                <Box
-                  sx={{
-                    width: '67%',
-                    paddingLeft: '1rem',
+                    marginBottom: '0.5rem',
+                    fontSize: '1.5rem',
                   }}
                 >
-                  <Typography
-                    variant='h1'
-                    sx={{
-                      marginBottom: '0.5rem',
-                      fontSize: '1.5rem',
-                    }}
-                  >
-                    {item['name']} ({item['amount']}g)
-                  </Typography>
-                  <Typography
-                    variant='h5'
-                    sx={{
-                      fontSize: '1rem',
-                    }}
-                  >
-                    {item['description']}
-                  </Typography>
-                  <Button
-                    sx={{
-                      color: colors.common.white,
-                      fontWeight: 700,
-                      paddingX: 0,
-                      fontSize: '1.125rem',
-                      marginTop: '1rem',
-                      width: '100%',
-                    }}
-                    variant='contained'
-                    size='large'
-                    color='roleski'
-                  >
-                    Dodaj do koszyka ({item['price']} zł)
-                  </Button>
-                </Box>
+                  {product['name']} ({product['amount']}g)
+                </Typography>
+                <Typography
+                  variant='h5'
+                  sx={{
+                    fontSize: '1rem',
+                  }}
+                >
+                  {product['description']}
+                </Typography>
+                <Button
+                  sx={{
+                    color: colors.common.white,
+                    fontWeight: 700,
+                    paddingX: 0,
+                    fontSize: '1.125rem',
+                    marginTop: '1rem',
+                    width: '100%',
+                  }}
+                  variant='contained'
+                  size='large'
+                  color='roleski'
+                  onClick={(e) => handleClick(e, product)}
+                >
+                  Dodaj do koszyka ({product['price']} zł)
+                </Button>
               </Box>
-            </Grid>
-          );
-        });
-
-        console.log(PA);
-
-        AP.push(
-          <>
-            <Grid xs={3}>
-              <Typography
-                variant='h2'
-                sx={{
-                  fontSize: '2rem',
-                  textAlign: 'left',
-                  color: 'roleski.primary',
-                  paddingY: '1rem',
-                  paddingX: '2.5rem',
-                }}
-              >
-                Spróbuj naszych nowych{' '}
-                {data['extras'][d[0]['type']]['dopelniacz']}:
-              </Typography>
-            </Grid>
-            {PA}
-          </>
-        );
+            </Box>
+          </Grid>,
+        ]);
       });
-      setAllProducts(AP);
     };
 
     addProducts();
   }, []);
+
+  useEffect(() => {
+    setTEST([
+      <>
+        <Grid item xs={3}>
+          <Typography
+            variant='h2'
+            sx={{
+              fontSize: '2rem',
+              textAlign: 'left',
+              color: 'roleski.primary',
+              paddingY: '1rem',
+              paddingX: '2.5rem',
+            }}
+          >
+            Spróbuj naszych nowych nowości:
+          </Typography>
+        </Grid>
+        {allProductElements}
+      </>,
+    ]);
+  }, [allProductElements]);
 
   return (
     <>
@@ -134,14 +159,10 @@ export default function Home() {
           paddingY: '1rem',
         }}
       >
-        {/* Spróbuj nowej musztardy American Classic */}
-        {/* Spróbuj nowego ketchupu Premium Jalapeno */}
-        Spróbuj nowych sosów Roleski Keto
+        Spróbuj nowych sosów Roleski Keto (darmowa wysyłka od 50 zł)
       </Typography>
       <Box
         sx={{
-          // backgroundImage: 'url(./musztarda.jpg)',
-          // backgroundImage: 'url(./ketchup.jpg)',
           backgroundImage: 'url(./keto.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
@@ -165,48 +186,8 @@ export default function Home() {
           marginBottom: '5rem',
         }}
       >
-        {allProducts}
+        {TEST}
       </Grid>
     </>
-    // <Grid
-    //   columns={1}
-    //   container
-    //   sx={{
-    //     width: '100%',
-    //     minHeight: '50vh',
-    //   }}
-    // >
-    //   <Grid xs={1}>
-    //     <Typography
-    //       variant='h1'
-    //       sx={{
-    //         fontSize: '2.5rem',
-    //         textAlign: 'center',
-    //         color: 'roleski.primary',
-    //         paddingY: '1rem',
-    //       }}
-    //     >
-    //       {/* Spróbuj nowej musztardy American Classic */}
-    //       {/* Spróbuj nowego ketchupu Premium Jalapeno */}
-    //       Spróbuj nowych sosów Roleski Keto
-    //     </Typography>
-    //     <Box
-    //       sx={{
-    //         // backgroundImage: 'url(../src/musztarda.jpg)',
-    //         // backgroundImage: 'url(../src/ketchup.jpg)',
-    //         backgroundImage: 'url(../src/keto.jpg)',
-    //         backgroundSize: 'cover',
-    //         backgroundPosition: 'center',
-    //         backgroundRepeat: 'no-repeat',
-    //         width: '90%',
-    //         marginX: 'auto',
-    //         borderRadius: '1rem',
-    //         aspectRatio: '2.5/1',
-    //         border: 4,
-    //         borderColor: 'roleski.primary',
-    //       }}
-    //     ></Box>
-    //   </Grid>
-    // </Grid>
   );
 }

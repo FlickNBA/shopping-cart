@@ -1,0 +1,76 @@
+{
+  "products": [
+    {
+      "name": "Sos Habanero",
+      "type": "sauce",
+      "amount": 120,
+      "description": "Ostry sos wzmocniony suszoną papryką habanero to coś specjalnego dla tych, którzy lubią mocne doznania. Smaki Meksyku, Hawany i Karaibów zamknięte w butelce, która doda emocji przy każdym gotowaniu. Nie dla mięczaków i na własną odpowiedzialność! Lubisz ostro? Tak? Wybierz nasz Habanero. Odpowiedni dla wegan. Bez konserwantów. Ostrość 3/5.",
+      "image": "sos-habanero.jpg",
+      "price": 8.99
+    },
+    {
+      "name": "Sos Ghost Pepper",
+      "type": "sauce",
+      "amount": 115,
+      "description": "Ghost Pepper – w slangu “naga jolka” – to do niedawna najostrzejsza papryczka na Ziemi. Maleństwo, przyznać trzeba, ale moc ma wielką! W połączeniu z egzotycznymi dodatkami (ananas, imbir, przyprawy curry) zaskakuje smakiem.  Chcesz poczuć jej działanie? Ostrość pojawia się z opóźnieniem. Polecany do wszelkich dań z ryżem i makaronem. Ostrość 4/5.",
+      "image": "sos-ghost-pepper.jpg",
+      "price": 8.99
+    },
+    {
+      "name": "Sos Carolina Reaper",
+      "type": "sauce",
+      "amount": 110,
+      "description": "Papryczka Peperoni ma zaledwie 500 jednostek w skali ostrości Scovillea. 2 mln w skali Scovillea to moc papryki Carolina Reaper – jednej z najbardziej pikantnych papryk na świecie. Jest bardzo ostra, a my dodaliśmy ją do naszego sosu!  W naszym sosie jest jej zaledwie 1,4% (papryczki suszonej, co odpowiada 14% papryki świeżej) a moc ma potężną (3x większą w porównaniu z naszym sosem Trinidad Scorpion).  Ostrość pojawia się z opóźnieniem. Ostrość 5/5.",
+      "image": "sos-carolina-reaper.jpg",
+      "price": 10.99
+    },
+    {
+      "name": "Musztarda Firestarter",
+      "type": "mustard",
+      "amount": 200,
+      "description": "Firestarter to obietnica czegoś palącego… i tak jest w istocie. Jeśli lubisz ostre smaki i w musztardach próbowałeś już wszystkiego, zobacz naszą nowość: Firestarter z dodatkiem chili. Podniesie temperaturę niejednego dania: od kiełbasy do kanapki, od śniadania do kolacji. Spróbuj musztardy innej niż wszystkie.",
+      "image": "musztarda-fire-starter.jpg",
+      "price": 4.99
+    },
+    {
+      "name": "Musztarda Texas BBQ",
+      "type": "mustard",
+      "amount": 190,
+      "description": "Musztarda Texas BBQ ma w sobie wszystko, co obiecujemy sobie po jej nazwie: ostrość miesza się tutaj ze słodyczą, a całość podbija charakterystyczny zapach dymu wędzarniczego, który tak uwielbiamy, nie tylko na grillu. Musztarda z twistem? Posmakuj cenionej przez smakoszy linii Street Food.",
+      "image": "musztarda-texas.jpg",
+      "price": 4.99
+    },
+    {
+      "name": "Musztarda Firestarter",
+      "type": "mustard",
+      "amount": 210,
+      "description": "Musztarda California Style – łagodność z nutką pomarańczy. No bo kto powiedział, że musztarda musi być nudna, że rzecz jest tylko w ostrości, że wybór to jedynie z gorczycą czy bez? Musztarda Roleski w stylu kalifornijskim to połączenie tradycji z niecodziennym cytrusowym smaczkiem. Odmieni kanapkę, z niejednego śniadania zrobi majstersztyk.",
+      "image": "musztarda-california-style.jpg",
+      "price": 4.49
+    },
+    {
+      "name": "Polski Dip Kibica",
+      "type": "dip",
+      "amount": 220,
+      "description": "Każdy wie, że nie ma nic bardziej sprawdzonego na mecz niż piwo i chipsy. A tam, gdzie się chrupie, fajnie jest i maczać! Polski Dip Kibica to idealna kompozycja do maczania i kibicowania: majonezowa konsystencja z dodatkiem czosnku i cebuli przeniesie każde sportowe spotkanie na wyższy poziom. POLSKA!",
+      "image": "polski-dip-kibica.jpg",
+      "price": 6.49
+    },
+    {
+      "name": "Argentyński Dip Kibica",
+      "type": "dip",
+      "amount": 200,
+      "description": "  Majonezowy dip o smaku bekonu, z przepysznym dodatkiem papryki wędzonej miał status bestseller, zanim jeszcze trafił na sklepową półkę. Stworzony do maczania, częstowania i kibicowania, pasuje do wszystkiego i wszystkim smakuje. Wybierz dipy od Roleski i kibicuj w niezapomnianym stylu.",
+      "image": "argentynski-dip-kibica.jpg",
+      "price": 6.49
+    },
+    {
+      "name": "Meksykański Dip Kibica",
+      "type": "dip",
+      "amount": 220,
+      "description": "Kusząco pomidorowy z miksem papryk, nie za ostry, nie za słodki – nasz Meksykański Dip Kibica to niezawodny dodatek do każdej transmisji. Rozgrzewa podniebienie, podsyca emocje, bywa oblizywany z palców i maczany do ostatniej kropli. Stworzony do czipsów, zapiekanek i kanapek. Z myślą o udanym kibicowaniu.",
+      "image": "meksykanski-dip-kibica.jpg",
+      "price": 5.99
+    }
+  ]
+}

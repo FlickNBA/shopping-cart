@@ -19,9 +19,9 @@ export default function Home() {
       </Typography>
       <Box
         sx={{
-          // backgroundImage: 'url(../src/musztarda.jpg)',
-          // backgroundImage: 'url(../src/ketchup.jpg)',
-          backgroundImage: 'url(../src/keto.jpg)',
+          // backgroundImage: 'url(./musztarda.jpg)',
+          // backgroundImage: 'url(./ketchup.jpg)',
+          backgroundImage: 'url(./keto.jpg)',
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundRepeat: 'no-repeat',
@@ -35,7 +35,7 @@ export default function Home() {
       <Typography
         variant='h2'
         sx={{
-          fontSize: '2.5rem',
+          fontSize: '2rem',
           textAlign: 'left',
           color: 'roleski.primary',
           paddingY: '1rem',

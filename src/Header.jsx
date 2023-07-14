@@ -31,7 +31,7 @@ export default function Header() {
             height: '4rem',
             marginRight: '1rem',
           }}
-          src='./src/logo.png'
+          src='./logo.png'
         />
         <Typography
           variant='h1'
